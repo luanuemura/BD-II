@@ -1,4 +1,4 @@
-# ⏱ Temporal — Trajetórias e Eventos
+# Temporal — Trajetórias e Eventos
 
 Sistema genérico para rastreamento temporal de entidades, trajetórias e eventos, com análises usando SQL avançado (LAG, LEAD, funções de janela, intervalos TSTZRANGE).
 
@@ -114,10 +114,10 @@ O Vite faz proxy automático: `/api/*` → `http://localhost:8000/*`
 
 | Aba | Funcionalidade |
 |-----|----------------|
-| 🧑 Entidades | CRUD completo + histórico em timeline + link para mapa |
-| 📅 Eventos | Listagem com filtros por tipo e entidade + CRUD |
-| 🗺️ Trajetórias | Mapa Leaflet interativo com Polylines e tooltips |
-| 📊 Análise Temporal | LAG/LEAD, funções de janela, intervalos/gaps, resumo |
+| Entidades | CRUD completo + histórico em timeline + link para mapa |
+| Eventos | Listagem com filtros por tipo e entidade + CRUD |
+| Trajetórias | Mapa Leaflet interativo com Polylines e tooltips |
+| Análise Temporal | LAG/LEAD, funções de janela, intervalos/gaps, resumo |
 
 ---
 
