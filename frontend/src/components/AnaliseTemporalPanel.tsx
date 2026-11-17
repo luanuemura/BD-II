@@ -1,3 +1,4 @@
+// sequência real é calculada através de Funções de Janela
 import { useState, useEffect } from 'react';
 import { getAnaliseSequencia, getAnaliseJanela, getAnaliseIntervalos, getResumo } from '../api';
 import type { Entidade, EventoComAnalise, AnaliseJanela, AnaliseIntervalo, Resumo } from '../types';

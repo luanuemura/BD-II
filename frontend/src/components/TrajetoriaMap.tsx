@@ -331,10 +331,10 @@ export default function TrajetoriaMap({ filtroEntidadeId, onClearFiltro }: Props
         <MapContainer center={mapCenter} zoom={8} style={{ height: 560, width: '100%' }}>
           <AjustarVisualizacao bounds={mapBounds} />
 
-          <TileLayer
+          <TileLayer 
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          /> 
 
           {/* 1. CAMADA DE TRAJETÓRIAS GPS */}
           {(modoVisualizacao === 'todas' || modoVisualizacao === 'gps') &&

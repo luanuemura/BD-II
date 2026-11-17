@@ -4,14 +4,13 @@ import type {
   EventoComAnalise, AnaliseJanela, AnaliseIntervalo, Resumo
 } from './types';
 
+// Axios dispara requisições (GET, POST, PUT, DELETE) para o backend e tipar os retornos com o TypeScript (types.ts).
+
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api'
 });
 
-// ─────────────────────────────────────────────
-// ENTIDADES
-// ─────────────────────────────────────────────
-
+// entidades
 export const getEntidades = (): Promise<Entidade[]> =>
   api.get('/entidades').then(r => r.data);
 
@@ -33,10 +32,7 @@ export const getHistorico = (id: number): Promise<Evento[]> =>
 export const getTrajetoriasDaEntidade = (id: number): Promise<Trajetoria[]> =>
   api.get(`/entidades/${id}/trajetorias`).then(r => r.data);
 
-// ─────────────────────────────────────────────
-// EVENTOS
-// ─────────────────────────────────────────────
-
+// eventos
 export const getEventos = (params?: { tipo?: string; entidade_id?: number }): Promise<Evento[]> =>
   api.get('/eventos', { params }).then(r => r.data);
 
@@ -69,10 +65,7 @@ export const atualizarEvento = (id: number, data: Partial<{
 export const excluirEvento = (id: number): Promise<void> =>
   api.delete(`/eventos/${id}`).then(() => undefined);
 
-// ─────────────────────────────────────────────
-// TRAJETÓRIAS
-// ─────────────────────────────────────────────
-
+// trajetorias
 export const getTrajetorias = (): Promise<Trajetoria[]> =>
   api.get('/trajetorias').then(r => r.data);
 
@@ -97,10 +90,7 @@ export const adicionarPonto = (trajetoriaId: number, data: Omit<PontoTrajetoria,
 export const removerPonto = (trajetoriaId: number, pontoId: number): Promise<void> =>
   api.delete(`/trajetorias/${trajetoriaId}/pontos/${pontoId}`).then(() => undefined);
 
-// ─────────────────────────────────────────────
-// ANÁLISE TEMPORAL
-// ─────────────────────────────────────────────
-
+// analise tempora
 export const getAnaliseSequencia = (entidadeId: number): Promise<EventoComAnalise[]> =>
   api.get(`/analise/sequencia/${entidadeId}`).then(r => r.data);
 

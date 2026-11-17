@@ -29,15 +29,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+# abre conexões via driver nativo psycopg3 e executa queries SQL parametrizadas (%s), prevenindo SQL Injection
 def conectar():
     return psycopg.connect(DATABASE_URL, row_factory=dict_row)
 
-
-# ─────────────────────────────────────────────
-# MODELOS PYDANTIC
-# ─────────────────────────────────────────────
-
+# modelos pydantic
+# garantir que tipos errados não cheguem ao banco
 class EntidadeCreate(BaseModel):
     nome: str
     tipo: Optional[str] = None
@@ -88,11 +85,9 @@ class PontoCreate(BaseModel):
     velocidade: Optional[float] = None
     metadados: Optional[dict] = {}
 
+# helper
 
-# ─────────────────────────────────────────────
-# HELPERS
-# ─────────────────────────────────────────────
-
+# JSON não entende TSTZRANGE e timedelta. A função serialize_value() traduz esses tipos para strings ISO antes de responder ao frontend.
 def serialize_value(v):
     if v is None:
         return None
@@ -118,20 +113,13 @@ def row_to_dict(row):
 def rows_to_list(rows):
     return [row_to_dict(r) for r in rows]
 
-
-# ─────────────────────────────────────────────
-# ROTAS BASE
-# ─────────────────────────────────────────────
+#rotas base
 
 @app.get("/")
 def inicio():
     return {"mensagem": "API Temporal funcionando!"}
 
-
-# ─────────────────────────────────────────────
-# ENTIDADES
-# ─────────────────────────────────────────────
-
+# entidade
 @app.get("/entidades")
 def listar_entidades():
     with conectar() as conn:
@@ -240,11 +228,7 @@ def trajetorias_da_entidade(id_entidade: int):
             )
             return rows_to_list(cursor.fetchall())
 
-
-# ─────────────────────────────────────────────
-# EVENTOS
-# ─────────────────────────────────────────────
-
+# eventos
 @app.get("/eventos")
 def listar_eventos(
     tipo: Optional[str] = Query(None),
@@ -353,11 +337,8 @@ def excluir_evento(id_evento: int):
             if cursor.fetchone() is None:
                 raise HTTPException(status_code=404, detail="Evento não encontrado")
 
-
-# ─────────────────────────────────────────────
-# TRAJETÓRIAS
-# ─────────────────────────────────────────────
-
+# trajetorias
+# formada com latitude, longitude e timestamp
 @app.get("/trajetorias")
 def listar_trajetorias():
     with conectar() as conn:
@@ -461,11 +442,7 @@ def remover_ponto(id_trajetoria: int, id_ponto: int):
             if cursor.fetchone() is None:
                 raise HTTPException(status_code=404, detail="Ponto não encontrado")
 
-
-# ─────────────────────────────────────────────
-# ANÁLISE TEMPORAL
-# ─────────────────────────────────────────────
-
+# analise temporal
 @app.get("/analise/sequencia/{entidade_id}")
 def analise_sequencia(entidade_id: int):
     """Eventos com LAG/LEAD - evento anterior e próximo."""
