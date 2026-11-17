@@ -11,10 +11,10 @@ import type { Entidade } from './types';
 type Tab = 'entidades' | 'eventos' | 'trajetorias' | 'analise';
 
 const TAB_LABELS: Record<Tab, string> = {
-  entidades: '🧑 Entidades',
-  eventos: '📅 Eventos',
-  trajetorias: '🗺️ Trajetórias',
-  analise: '📊 Análise Temporal',
+  entidades: 'Entidades',
+  eventos: 'Eventos',
+  trajetorias: 'Trajetórias',
+  analise: 'Análise Temporal',
 };
 
 const styles = {
@@ -113,7 +113,7 @@ export default function App() {
     <div style={styles.app}>
       <header style={styles.header}>
         <div>
-          <h1 style={styles.title}>⏱ Temporal</h1>
+          <h1 style={styles.title}>Temporal</h1>
           <p style={styles.subtitle}>Rastreamento de Trajetórias e Eventos</p>
         </div>
       </header>

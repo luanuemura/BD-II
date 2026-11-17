@@ -36,7 +36,7 @@ export default function HistoricoTimeline({ entidadeId }: Props) {
       .finally(() => setLoading(false));
   }, [entidadeId]);
 
-  if (loading) return <div style={{ padding: 20, color: '#666' }}>⏳ Carregando...</div>;
+  if (loading) return <div style={{ padding: 20, color: '#666' }}>Carregando...</div>;
   if (erro) return <div style={{ color: '#c0392b', padding: 12, backgroundColor: '#fdecea', borderRadius: 6 }}>{erro}</div>;
   if (!eventos.length) return <div style={{ color: '#888', padding: 16 }}>Nenhum evento registrado.</div>;
 
@@ -83,21 +83,21 @@ export default function HistoricoTimeline({ entidadeId }: Props) {
 
               <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <div style={{ fontSize: 12, color: '#555' }}>
-                  🕐 <strong>Início:</strong> {fmt(ev.inicio)}
+                  <strong>Início:</strong> {fmt(ev.inicio)}
                 </div>
                 <div style={{ fontSize: 12, color: '#555' }}>
-                  🕐 <strong>Fim:</strong> {fmt(ev.fim)}
+                  <strong>Fim:</strong> {fmt(ev.fim)}
                 </div>
                 {(ev as unknown as { duracao: string }).duracao && (
                   <div style={{ fontSize: 12, color: '#555' }}>
-                    ⏱️ <strong>Duração:</strong> {formatDuracao((ev as unknown as { duracao: string }).duracao)}
+                    <strong>Duração:</strong> {formatDuracao((ev as unknown as { duracao: string }).duracao)}
                   </div>
                 )}
               </div>
 
               {ev.latitude != null && (
                 <div style={{ marginTop: 6, fontSize: 12, color: '#1a8c67' }}>
-                  📍 {ev.latitude?.toFixed(5)}, {ev.longitude?.toFixed(5)}
+                  {ev.latitude?.toFixed(5)}, {ev.longitude?.toFixed(5)}
                 </div>
               )}
 

@@ -66,7 +66,7 @@ export default function AnaliseTemporalPanel({ entidades }: Props) {
 
   return (
     <div>
-      <h2 style={{ marginTop: 0 }}>📊 Análise Temporal</h2>
+      <h2 style={{ marginTop: 0 }}>Análise Temporal</h2>
 
       {/* Selector */}
       <div style={{ backgroundColor: '#fff', borderRadius: 8, padding: 16, boxShadow: '0 1px 4px rgba(0,0,0,0.07)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -122,7 +122,7 @@ export default function AnaliseTemporalPanel({ entidades }: Props) {
         <>
           {/* LAG/LEAD */}
           <section style={{ marginBottom: 32 }}>
-            <h3 style={{ color: '#1a3a5c', marginBottom: 8 }}>↔️ Sequência de Eventos (LAG / LEAD)</h3>
+            <h3 style={{ color: '#1a3a5c', marginBottom: 8 }}>Sequência de Eventos (LAG / LEAD)</h3>
             <p style={{ fontSize: 13, color: '#666', marginBottom: 12 }}>
               Para cada evento, mostra o evento anterior (<code>LAG</code>) e o próximo (<code>LEAD</code>).
             </p>
@@ -200,7 +200,7 @@ export default function AnaliseTemporalPanel({ entidades }: Props) {
 
           {/* Intervalos e Gaps */}
           <section style={{ marginBottom: 32 }}>
-            <h3 style={{ color: '#1a3a5c', marginBottom: 8 }}>📐 Intervalos e Gaps</h3>
+            <h3 style={{ color: '#1a3a5c', marginBottom: 8 }}>Intervalos e Gaps</h3>
             <p style={{ fontSize: 13, color: '#666', marginBottom: 12 }}>
               Detecta sobreposições, eventos adjacentes e gaps (lacunas) entre eventos consecutivos.
             </p>

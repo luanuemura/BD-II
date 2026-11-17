@@ -363,9 +363,9 @@ export default function TrajetoriaMap({ filtroEntidadeId, onClearFiltro }: Props
                         <div style={{ fontSize: 12 }}>
                           <strong>#{p.sequencia}</strong> — {traj.nome}<br />
                           <strong>Entidade:</strong> {traj.entidade_nome}<br />
-                          🕒 {fmt(p.timestamp)}<br />
-                          {p.velocidade != null && <>🚗 {p.velocidade} km/h<br /></>}
-                          {p.altitude != null && <>⛰️ {p.altitude}m</>}
+                          {fmt(p.timestamp)}<br />
+                          {p.velocidade != null && <>{p.velocidade} km/h<br /></>}
+                          {p.altitude != null && <>{p.altitude}m</>}
                         </div>
                       </Tooltip>
                     </CircleMarker>
@@ -424,7 +424,7 @@ export default function TrajetoriaMap({ filtroEntidadeId, onClearFiltro }: Props
                             <div><strong>Início:</strong> {fmt(ev.inicio)}</div>
                             <div><strong>Fim:</strong> {fmt(ev.fim)}</div>
                             <div style={{ color: '#888', fontSize: 11, marginTop: 2 }}>
-                              📍 {ev.latitude?.toFixed(4)}, {ev.longitude?.toFixed(4)}
+                              {ev.latitude?.toFixed(4)}, {ev.longitude?.toFixed(4)}
                             </div>
                           </div>
                         </Tooltip>

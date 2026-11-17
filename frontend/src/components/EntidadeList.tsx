@@ -89,19 +89,19 @@ export default function EntidadeList({ refresh, onEdit, onDelete, onVerTrajetori
                 <td style={{ ...tdStyle, whiteSpace: 'nowrap' }}>
                   <button onClick={() => { setHistoricoId(e.id_entidade); setHistoricoNome(e.nome); }}
                     style={{ marginRight: 6, padding: '4px 10px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #1a6fc4', backgroundColor: '#fff', color: '#1a6fc4' }}>
-                    📋 Histórico
+                    Histórico
                   </button>
                   <button onClick={() => onVerTrajetorias(e.id_entidade)}
                     style={{ marginRight: 6, padding: '4px 10px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #27ae60', backgroundColor: '#fff', color: '#27ae60' }}>
-                    🗺️ Mapa
+                    Mapa
                   </button>
                   <button onClick={() => onEdit(e)}
                     style={{ marginRight: 6, padding: '4px 10px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #e67e22', backgroundColor: '#fff', color: '#e67e22' }}>
-                    ✏️ Editar
+                    Editar
                   </button>
                   <button onClick={() => handleExcluir(e)}
                     style={{ padding: '4px 10px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #e74c3c', backgroundColor: '#fff', color: '#e74c3c' }}>
-                    🗑️ Excluir
+                    Excluir
                   </button>
                 </td>
               </tr>
@@ -117,7 +117,7 @@ export default function EntidadeList({ refresh, onEdit, onDelete, onVerTrajetori
           <div style={{ backgroundColor: '#fff', borderRadius: 10, padding: 28, width: '90%', maxWidth: 700, maxHeight: '80vh', overflowY: 'auto', boxShadow: '0 8px 40px rgba(0,0,0,0.2)' }}
             onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-              <h3 style={{ margin: 0 }}>📋 Histórico — {historicoNome}</h3>
+              <h3 style={{ margin: 0 }}>Histórico — {historicoNome}</h3>
               <button onClick={() => setHistoricoId(null)} style={{ border: 'none', background: 'none', fontSize: 20, cursor: 'pointer', color: '#888' }}>✕</button>
             </div>
             <HistoricoTimeline entidadeId={historicoId} />

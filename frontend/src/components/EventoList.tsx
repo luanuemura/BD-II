@@ -87,7 +87,7 @@ export default function EventoList({ refresh, entidades, onDelete }: Props) {
         </div>
       </div>
 
-      {loading && <div style={{ padding: 24, color: '#666' }}>⏳ Carregando eventos...</div>}
+      {loading && <div style={{ padding: 24, color: '#666' }}>Carregando eventos...</div>}
       {erro && <div style={{ padding: 16, color: '#c0392b', backgroundColor: '#fdecea', borderRadius: 6 }}>{erro}</div>}
       {!loading && !erro && !eventos.length && <div style={{ padding: 24, color: '#888' }}>Nenhum evento encontrado.</div>}
 
@@ -127,13 +127,13 @@ export default function EventoList({ refresh, entidades, onDelete }: Props) {
                     <td style={{ ...tdStyle, whiteSpace: 'nowrap', color: '#555' }}>{fmt(ev.fim)}</td>
                     <td style={tdStyle}>
                       {ev.latitude != null
-                        ? <span style={{ color: '#1a8c67', fontSize: 12 }}>📍 {ev.latitude.toFixed(4)}, {ev.longitude?.toFixed(4)}</span>
+                        ? <span style={{ color: '#1a8c67', fontSize: 12 }}>{ev.latitude.toFixed(4)}, {ev.longitude?.toFixed(4)}</span>
                         : <span style={{ color: '#aaa', fontSize: 12 }}>sem GPS</span>}
                     </td>
                     <td style={tdStyle}>
                       <button onClick={() => handleExcluir(ev)}
                         style={{ padding: '4px 10px', fontSize: 12, cursor: 'pointer', borderRadius: 4, border: '1px solid #e74c3c', backgroundColor: '#fff', color: '#e74c3c' }}>
-                        🗑️ Excluir
+                        Excluir
                       </button>
                     </td>
                   </tr>
